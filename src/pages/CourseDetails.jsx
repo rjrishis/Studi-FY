@@ -11,10 +11,10 @@ import RatingStars from "../components/common/RatingStars"
 import CourseAccordionBar from "../components/core/Course/CourseAccordionBar"
 import CourseDetailsCard from "../components/core/Course/CourseDetailsCard"
 import { formatDate } from "../services/formatDate"
-import { fetchCourseDetails } from '../services/operations/courseDetailsAPI'
-import { buyCourse } from '../services/operations/studentFeaturesAPI'
+import { fetchCourseDetails } from '../services/operations/courseDetailsApi.js'
+import { buyCourse } from '../services/operations/studentFeaturesAPI.js'
 import GetAvgRating from "../utils/avgRating"
-import { getFullDetailsOfCourse } from '../services/operations/courseDetailsAPI'
+import { getFullDetailsOfCourse } from '../services/operations/courseDetailsApi'
 import Error from "./Error"
 const CourseDetails = () => {
   const { user } = useSelector((state) => state.profile)

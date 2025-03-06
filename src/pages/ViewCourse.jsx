@@ -5,7 +5,8 @@ import { Outlet, useParams } from "react-router-dom"
 import CourseReviewModal from '../components/core/ViewCourse/CourseReviewModal'
 import VideoDetailsSidebar from '../components/core/ViewCourse/VideoDetailsSidebar'
 import { setCompletedLectures, setCourseSectionData, setEntireCourseData, setTotalNoOfLectures } from '../components/store/reducers/viewCourse'
-import { getFullDetailsOfCourse } from '../services/operations/courseDetailsApi'
+// import { getFullDetailsOfCourse } from '../services/operations/courseDetailsApi'
+import { getFullDetailsOfCourse } from '../services/operations/courseDetailsApi.js'
 const ViewCourse = () => {
   const { courseId } = useParams()
   const { token } = useSelector((state) => state.auth)

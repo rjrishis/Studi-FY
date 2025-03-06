@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form"
 import { RxCross2 } from "react-icons/rx"
 import ReactStars from "react-rating-stars-component"
 import { useSelector } from "react-redux"
-import { createRating } from '../../../services/operations/courseDetailsApi'
+// import { createRating } from '../../../services/operations/courseDetailsApi'
+import { createRating } from '../../../services/operations/courseDetailsApi.js'
 import IconBtn from '../../common/IconBtn'
 const CourseReviewModal = ({ setReviewModal }) => {
     const { user } = useSelector(state => state.profile)

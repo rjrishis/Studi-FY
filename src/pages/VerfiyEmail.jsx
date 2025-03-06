@@ -5,7 +5,7 @@ import OTPInput from 'react-otp-input'
 import { Link, useNavigate } from 'react-router-dom'
 import { GoArrowLeft } from 'react-icons/go'
 import { FaClockRotateLeft } from "react-icons/fa6";
-import { signup } from '../services/operations/authAPI'
+import { signup } from '../services/operations/authAPI.js'
 function VerfiyEmail() {
     const { signupData, loading } = useSelector(state => state.auth)
     const dispatch = useDispatch()

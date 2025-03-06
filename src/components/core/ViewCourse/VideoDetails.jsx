@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom"
 import { BigPlayButton, Player } from "video-react"
 import IconBtn from "../../common/IconBtn"
 import { updateCompletedLectures } from '../../store/reducers/viewCourse'
-import { markLectureAsComplete } from '../../../services/operations/courseDetailsApi'
+import { markLectureAsComplete } from '../../../services/operations/courseDetailsApi.js'
 const VideoDetails = () => {
   const { courseId, sectionId, subSectionId } = useParams()
   const navigate = useNavigate()
