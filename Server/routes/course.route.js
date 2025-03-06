@@ -42,11 +42,12 @@ import {
 } from "../controllers/subSection.js"
 
 // Rating Controllers Import
-import {
-  createRating,
-  getAverageRating,
-  getAllRating,
-} from "../controllers/RatingAndReview.js"
+// import {
+//   createRating,
+//   getAverageRating,
+//   getAllRating,
+// } from "../controllers/RatingAndReview.js"
+import {createRating , getAverageRating , getAllRating} from "../controllers/ratingAndReview.js"
 
 import { getInstructorCourses } from "../controllers/course.js"
 
