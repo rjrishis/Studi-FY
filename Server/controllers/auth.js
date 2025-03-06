@@ -13,7 +13,7 @@ const sendOtp = async (req, res) => {
   try {
       const { email } = req.body;
 
-      // Check if user already exists
+      // Check if user already exist
       const userAlreadyExists = await User.findOne({ email });
       if (userAlreadyExists) {
           return res.status(400).json({ message: "User already exists" });
