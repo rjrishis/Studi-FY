@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { GoArrowLeft } from "react-icons/go";
 import { useDispatch } from 'react-redux';
-import { getPasswordResetToken } from '../services/operations/authAPI';
+import { getPasswordResetToken } from '../services/operations/authAPI.js';
 import Loader from '../components/common/Loader';
 const ForgotPassword = () => {
     const {laoding} = useSelector(state => state.auth)

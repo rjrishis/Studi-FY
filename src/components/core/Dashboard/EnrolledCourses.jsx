@@ -4,7 +4,7 @@ import ProgressBar from "@ramonak/react-progress-bar"
 import { BiDotsVerticalRounded } from "react-icons/bi"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { getUserEnrolledCourses } from '../../../services/operations/profileApi.js'
+import { getUserEnrolledCourses } from '../../../services/operations/profileAPI.js'
 const EnrolledCourses = () => {
   const {token} = useSelector(state => state.auth)
   const navigate = useNavigate()

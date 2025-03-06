@@ -5,7 +5,7 @@ import { LuEye } from 'react-icons/lu'
 import { LuEyeOff } from 'react-icons/lu'
 import { Link, useLocation } from 'react-router-dom'
 import { GoArrowLeft } from 'react-icons/go'
-import { resetPassword } from '../services/operations/authAPI'
+import { resetPassword } from '../services/operations/authAPI.js'
 import toast from 'react-hot-toast'
 const UpdatePassword = () => {
   const location = useLocation()
