@@ -10,10 +10,10 @@ import { IoDiamond } from "react-icons/io5";
 import { TbMathSymbols } from "react-icons/tb";
 import TimelineImage from "../assets/Images/TimelineImage.png"
 import Highlighter from '../components/core/HomePage/Highlighter';
-import kyp from "../assets/Images/know_your_progress.png"
-import compare_with_others from "../assets/Images/compare_with_others.png"
-import plan_your_lessons from "../assets/Images/plan_your_lessons.png"
-import instructor from "../assets/Images/instructor.png"
+import know_your_progress from "../assets/Images/Know_your_progress.png"
+import compare_with_others from "../assets/Images/Compare_with_others.png"
+import plan_your_lessons from "../assets/Images/Plan_your_lessons.png"
+import instructor from "../assets/Images/Instructor.png"
 import Footer from '../components/common/Footer';
 import ExploreMore from '../components/core/HomePage/ExploreMore';
 const Home = () => {
@@ -148,7 +148,7 @@ const Home = () => {
                         <p className='text-center font-medium text-richblue-600 text-base'>using spin making learning multiple languages esasy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more.</p>
                     </div>
                     <div className='w-full flex items-center justify-center -mr-9'>
-                        <><img src={kyp} alt="" className='object-contain ml-8' style={{ width: "800p" }} /></>
+                        <><img src={know_your_progress} alt="" className='object-contain ml-8' style={{ width: "800p" }} /></>
 
                         <><img src={compare_with_others} alt="" className='object-contain -ml-36' style={{ width: "800x" }} /></>
                         <><img src={plan_your_lessons} alt="" className='object-contain -ml-44' style={{ width: "800x" }} /></>
