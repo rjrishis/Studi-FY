@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite preview"
+    "start": "vite preview --port=$PORT --host"
+
   },
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.3.0",
