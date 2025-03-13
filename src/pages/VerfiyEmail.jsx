@@ -6,13 +6,9 @@ import OTPInput from 'react-otp-input'
 import { Link, useNavigate } from 'react-router-dom'
 import { GoArrowLeft } from 'react-icons/go'
 import { FaClockRotateLeft } from "react-icons/fa6";
-<<<<<<< HEAD
-import { signup } from '../services/operations/authAPI.js'
-=======
 import { signup } from '../services/operations/authAPI'
 import { BiArrowBack} from "react-icons/bi"
 import { RxCountdownTimer } from "react-icons/rx";
->>>>>>> bb84db7 (updated ui)
 function VerfiyEmail() {
     const [otp, setOtp] = useState("");
   const { signupData, loading } = useSelector((state) => state.auth);

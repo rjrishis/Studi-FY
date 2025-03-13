@@ -4,75 +4,6 @@ import { Link } from "react-router-dom"
 
 // Image and Video Import
 import Banner from "../assets/Images/banner.mp4"
-<<<<<<< HEAD
-import CodeBlocks from '../components/core/HomePage/CodeBlocks';
-import { RiUserFill } from "react-icons/ri";
-import { FaGraduationCap } from "react-icons/fa";
-import { IoDiamond } from "react-icons/io5";
-import { TbMathSymbols } from "react-icons/tb";
-import TimelineImage from "../assets/Images/TimelineImage.png"
-import Highlighter from '../components/core/HomePage/Highlighter';
-import know_your_progress from "../assets/Images/Know_your_progress.png"
-import compare_with_others from "../assets/Images/Compare_with_others.png"
-import plan_your_lessons from "../assets/Images/Plan_your_lessons.png"
-import instructor from "../assets/Images/Instructor.png"
-import Footer from '../components/common/Footer';
-import ExploreMore from '../components/core/HomePage/ExploreMore';
-const Home = () => {
-    return (
-        <div>
-            <div className='flex justify-center'>
-                <div className='w-[70%] flex flex-col items-center pt-10'>
-                    <Link to={"/signup"} className="mb-10">
-                        <div className='flex gap-3 bg-richblue-800 text-richblack-200 rounded-full px-5 py-2 hover:border hover:bg-richblack-900 transition-all duration-200 hover:scale-105 '>
-                            Become an Instructor  <span className='mt-1'><LuArrowRight /></span>
-                        </div>
-                    </Link>
-                    <div className='flex flex-col items-center '>
-                        <h1 className=' text-3xl text-white font-semibold'>Empower Your Future With <span className='bg-gradient-to-b from-[#1fa2ff] via-[#12d8fa] to-[#a6ffcb] text-transparent bg-clip-text font-bold font-bold'>Coding Skills</span></h1>
-                        <div className='w-full h-full px-12 py-5'>
-                            <p className='text-richblack-300  text-center'>with out online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands on projects, quizzes and personlaized feedback form instructors.</p>
-                        </div>
-                    </div>
-                    <div className='flex gap-10 mt-3 shadow-blue-200'>
-                        <CustomButton linkto="/learn-more" active={true}>Learn More</CustomButton>
-                        <CustomButton linkto="/learn-more" active={false}>Book a Demo</CustomButton>
-                    </div>
-                    <div className='mt-14'>
-                        <video
-                            muted
-                            loop
-                            autoPlay
-                            src={Banner}
-                        ></video>
-                    </div>
-                    <div>
-                        <CodeBlocks
-                            heading={<div>
-                                <h1 className='text-3xl font-semibold text-white'>Unlock your <span className='bg-gradient-to-b from-[#1fa2ff] via-[#12d8fa] to-[#a6ffcb] text-transparent bg-clip-text font-bold  font-semibold'>coding potential</span> with our online courses</h1>
-                            </div>}
-                            subheading={"Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you. "}
-                            cbutton1={{ active: true, children: "try it yourself", linkto: "/signup" }}
-                            cbutton2={{ active: false, children: "learn more", linkto: "/login" }}
-                            codeBlock={`<!DOCTYPE html>\n <html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>\n<html lang="en">\n<head>\n<title>This is myPage</title>`}
-                            codeColor={"text-[#FED608]"}
-                        />
-                    </div>
-                    <div className=''>
-                        <CodeBlocks
-                            position={"flex-row-reverse"}
-                            heading={<div>
-                                <h1 className='text-3xl font-semibold text-white'>Start  <span className='bg-gradient-to-b from-[#1fa2ff] via-[#12d8fa] to-[#a6ffcb] text-transparent bg-clip-text font-bold font-semibold'>coding in seconds</span> </h1>
-                            </div>}
-                            subheading={"Go ahead, give it a try. Our hands-on learning enivironment means you'll be writing real code from your very first lesson. "}
-                            cbutton1={{ active: true, children: "continue lesson", linkto: "/signup" }}
-                            cbutton2={{ active: false, children: "learn more", linkto: "/login" }}
-                            codeBlock={`<!DOCTYPE html>\n <html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>\n<html lang="en">\n<head>\n<title>This is myPage</title>`}
-                            codeColor={"text-[#FED608]"}
-                        />
-                    </div>
-                    <ExploreMore/>
-=======
 // Component Imports
 import Footer from "../components/common/Footer"
 // import ReviewSlider from "../components/common/ReviewSlider"
@@ -84,7 +15,6 @@ import Highlighter from "../components/core/HomePage/Highlighter"
 import InstructorSection from "../components/core/HomePage/InstructorSection"
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection"
 import TimelineSection from "../components/core/HomePage/TimelineSection"
->>>>>>> bb84db7 (updated ui)
 
 function Home() {
   return (
