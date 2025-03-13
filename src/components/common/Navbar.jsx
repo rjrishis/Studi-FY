@@ -83,7 +83,7 @@ const Navbar = () => {
                   key={i}
                   to={e.path}
                   className={({ isActive }) =>
-                    `text-lg ${isActive ? "text-yellow-400" : "text-white"}`
+                    `text-lg ${isActive ? "text-yellow-50" : "text-white"}`
                   }
                 >
                   {e.title}

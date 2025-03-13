@@ -24,6 +24,7 @@ import CourseDetails from './pages/CourseDetails'
 import Cart from './components/core/Cart/Cart'
 import ViewCourse from './pages/ViewCourse'
 import VideoDetails from './components/core/ViewCourse/VideoDetails'
+import Instructor from './components/core/Dashboard/InstructorDashboard/Instructor'
 const App = () => {
   return (
     <div className='bg-richblack-900 w-screen min-h-screen font-inter'>
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/dashboard/add-course" element={<AddCourse />} />
           <Route path="/dashboard/my-courses" element={<MyCourses />} />
           <Route path="/dashboard/cart" element={<Cart />} />
+          <Route path="/dashboard/instructor" element={<Instructor />} />
           <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />} />
           <Route path="/dashboard/edit-course/:courseId" element={<EditCourse />} />
         </Route>

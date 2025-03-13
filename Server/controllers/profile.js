@@ -3,6 +3,7 @@ import User from "../models/user.model.js";
 import { uploadOnCloudinary } from "../utils/uploadToCloudinary.js";
 import { convertSecondsToDuration } from "../utils/secToDuration.js";
 import CourseProgress from "../models/courseProgress.model.js";
+import Course from "../models/course.model.js";
 
 const updateProfile = async (req, res) => {
   try {
@@ -168,5 +169,30 @@ const getEnrolledCourses = async (req, res) => {
   }
 }
 
+const instructorDashboard = async (req,res)=>{
+  try {
+    const courseDetails = await Course.find({instructor:req.user.userId});
+    const courseData = courseDetails.map(course => {
+      const totalStudentsEnrolled = course.studentsEnrolled.length;
+      const totalAmountGenerated = totalStudentsEnrolled * course.price;
 
-export { updateProfile, deleteAccount, getAllUserDetails, updateDisplayPicture, getEnrolledCourses }
+      const courseDataWithStats = {
+        _id: course._id,
+        courseName: course.courseName,
+        courseDescription: course.courseDescription,
+        // Include other course properties as needed
+        totalStudentsEnrolled,
+        totalAmountGenerated,
+      }
+      return courseDataWithStats;
+    })
+    res.status(200).json({ courses: courseData })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ message: "Server Error" })
+  }
+
+}
+
+
+export { updateProfile, deleteAccount, getAllUserDetails, updateDisplayPicture, getEnrolledCourses, instructorDashboard }

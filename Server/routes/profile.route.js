@@ -7,9 +7,9 @@ import {
   updateProfile,
   getAllUserDetails,
   updateDisplayPicture,
-  getEnrolledCourses
+  getEnrolledCourses,
   // getEnrolledCourses,
-  // instructorDashboard,
+  instructorDashboard,
 } from "../controllers/profile.js"
 
 // ********************************************************************************************************
@@ -22,6 +22,6 @@ router.get("/getUserDetails", auth, getAllUserDetails)
 // Get Enrolled Courses
 router.get("/getEnrolledCourses", auth, getEnrolledCourses)
 router.put("/updateDisplayPicture", auth, upload.single("displayImage") , updateDisplayPicture)
-// router.get("/instructorDashboard", auth, isInstructor, instructorDashboard)
+router.get("/instructorDashboard", auth, isInstructor, instructorDashboard)
 
 export default router
