@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { TbDashboardFilled } from "react-icons/tb";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -7,63 +7,73 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../../services/operations/authAPI";
 import { LuShoppingCart } from "react-icons/lu";
 
-const ProfileDropDown = () => {
+const ProfileDropDown = ({ setMenuOpen }) => {
   const { user } = useSelector((state) => state.profile) || {};
   const { totalItems = 0 } = useSelector((state) => state.cart) || {};
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => {
+  const handleLogout = () => {
     dispatch(logout(navigate));
+    setMenuOpen(false); // Close hamburger on logout
   };
 
   return (
-    <div className="w-full h-full flex gap-1 items-center text-white relative group z-[999]">
+    <div
+      className="relative flex items-center text-white cursor-pointer"
+      onClick={() => setIsOpen(!isOpen)}
+    >
       {/* Shopping Cart for Students */}
       {user?.accountType === "Student" && (
         <div className="relative">
-          <div className="absolute left-6 bottom-4 text-sm font-bold bg-red-5 rounded-full px-[6px]">
+          <div className="absolute left-6 bottom-4 text-sm font-bold bg-red-500 rounded-full px-[6px]">
             {totalItems}
           </div>
           <LuShoppingCart
-            className="h-7 w-8 mr-4 cursor-pointer"
-            onClick={() => navigate("/dashboard/cart")}
+            className="h-7 w-8 mr-4"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate("/dashboard/cart");
+              setMenuOpen(false); // Close hamburger on cart click
+            }}
           />
         </div>
       )}
 
       {/* Profile Image */}
-      <div className="w-10 h-10 rounded-full bg-red-5 text-white text-center overflow-hidden object-cover">
+      <div className="w-10 h-10 rounded-full bg-gray-700 overflow-hidden">
         <img
-          className="object-cover aspect-square"
-          src={user?.image || "/default-profile.png"} // Fallback image
+          className="object-cover w-full h-full"
+          src={user?.image || "/default-profile.png"}
           alt="Profile"
         />
       </div>
 
       {/* Arrow Icon */}
-      <div className="group-hover:hidden">
-        <IoIosArrowUp />
-      </div>
-      <div className="hidden group-hover:block">
-        <IoIosArrowDown />
-      </div>
+      <div>{isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}</div>
 
       {/* Dropdown Menu */}
-      <div
-        className="w-32 rounded-lg bg-richblack-800 border absolute top-[120%] left-[-42%] flex flex-col px-[10px] py-4 
-        invisible opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-hover:cursor-pointer"
-      >
-        <Link to={"/dashboard"} className="text-richblack-5 flex gap-1 items-center">
-          <TbDashboardFilled />
-          <h1 className="text-richblack-5">Dashboard</h1>
-        </Link>
-
-        <Link onClick={handleClick} to={"/"} className="flex gap-1 items-center text-richblack-5">
-          <IoLogOutOutline />
-          <h1 className="text-richblack-5">Logout</h1>
-        </Link>
-      </div>
+      {isOpen && (
+        <div
+          className="z-[999] absolute top-[120%] left-[5%] w-32 rounded-lg bg-richblack-800 border text-white flex flex-col px-[10px] py-4 "
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Link
+            to="/dashboard"
+            className="flex gap-2 items-center hover:text-gray-300"
+            onClick={() => setMenuOpen(false)} // Close hamburger on Dashboard click
+          >
+            <TbDashboardFilled /> Dashboard
+          </Link>
+          <button
+            onClick={handleLogout}
+            className="flex gap-2 items-center hover:text-gray-300 mt-2"
+          >
+            <IoLogOutOutline /> Logout
+          </button>
+        </div>
+      )}
     </div>
   );
 };

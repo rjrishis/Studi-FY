@@ -23,7 +23,7 @@ const ContactForm = () => {
         }
       }, [reset, isSubmitSuccessful])
     return (
-        <form onSubmit={handleSubmit(submitContactForm)}>
+        <form onSubmit={handleSubmit(submitContactForm)} className='border border-richblack-500 p-8 rounded-md mb-5'>
             <div className='flex gap-4 mx-auto'>
                 <div>
                     <label className='text-richblack-5' htmlFor="firstname">First Name</label>

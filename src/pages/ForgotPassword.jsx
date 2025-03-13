@@ -5,66 +5,69 @@ import { GoArrowLeft } from "react-icons/go";
 import { useDispatch } from 'react-redux';
 import { getPasswordResetToken } from '../services/operations/authAPI.js';
 import Loader from '../components/common/Loader';
+import {BiArrowBack} from "react-icons/bi"
 const ForgotPassword = () => {
     const {laoding} = useSelector(state => state.auth)
     const dispatch = useDispatch();
     const [emailSent, setEmailSent] = useState(false);
     const [email, setEmail] = useState("")
     const { loading } = useSelector(state => state.auth)
-    const handleChange = (e) => {
-        setEmail(e.target.value)
-    }
+    // const handleChange = (e) => {
+    //     setEmail(e.target.value)
+    // }
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(getPasswordResetToken(email , setEmailSent , loading))
     }
     return (
-        <div className='w-screen flex items-center justify-center h-screen'>
-            {
-                loading ? <Loader/> : <div className='flex flex-col gap-5 w-[30%] mt-[-100px]'>
-                    <h1 className='text-white text-3xl font-semibold'>
-                        {!emailSent ? "Reset Your Password" : "Check email"}
-                    </h1>
-                    <p className='text-richblack-200 text-xl'>
-                        {!emailSent ? "Have no fear. We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"
-                            : `We have sent the reset email to you at your email address ${email}`}
+        <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+          {loading ? (
+            <div className="spinner"></div>
+          ) : (
+            <div className="max-w-[500px] p-4 lg:p-8">
+              <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
+                {!emailSent ? "Reset your password" : "Check email"}
+              </h1>
+              <p className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100">
+                {!emailSent
+                  ? "Have no fear. We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"
+                  : `We have sent the reset email to ${email}`}
+              </p>
+              <form onSubmit={handleSubmit}>
+                {!emailSent && (
+                  <label className="w-full">
+                    <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+                      Email Address <sup className="text-pink-200">*</sup>
                     </p>
-                    <form onSubmit={handleSubmit} >
-                    {
-                        !emailSent &&
-                        <label htmlFor="" className='text-white'>
-                            Email address<sup className='text-pink-200'>*</sup>
-                            <input
-                                onChange={handleChange}
-                                required
-                                type="text"
-                                name="email"
-                                value={email}
-                                placeholder="Enter email address"
-                                style={{
-                                    boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                                }}
-                                className="mt-2 w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
-                            />
-                        </label>
-                    }
-                    <button
-                        type="submit"
-                        className="w-full mt-6 mb-3 rounded-[8px] bg-yellow-50 py-[10px] px-[12px] font-semibold text-richblack-900"
-                    >
-                        {!emailSent ? "Submit" : "Resend email"}
-                    </button>
-
-                    <Link to={"/login"} className='flex gap-3 text-white items-center text-md'>
-                        <GoArrowLeft />
-                        <h1>Back To Login</h1>
-                    </Link>
-                    </form>
-
-                </div>
-            }
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter email address"
+                      className="form-style w-full"
+                    />
+                  </label>
+                )}
+                <button
+                  type="submit"
+                  className="mt-6 w-full rounded-[8px] bg-yellow-50 py-[12px] px-[12px] font-medium text-richblack-900"
+                >
+                  {!emailSent ? "Sumbit" : "Resend Email"}
+                </button>
+              </form>
+              <div className="mt-6 flex items-center justify-between">
+                <Link to="/login">
+                  <p className="flex items-center gap-x-2 text-richblack-5">
+                    <BiArrowBack /> Back To Login
+                  </p>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
-    )
+      )
 }
 
 export default ForgotPassword

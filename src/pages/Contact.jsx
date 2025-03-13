@@ -8,54 +8,62 @@ import Footer from "../components/common/Footer"
 
 const Contact = () => {
     return (
-        <div>
-            <div className='w-screen flex flex-col items-center justify-center'>
-                <div className='w-[70%] flex g ml-16'>
-                    <div className='w-[40%] '>
-                        <div className='text-richblack-5 flex flex-col gap-10 mt-5 bg-richblack-800 px-8 py-4 rounded-md border border-richblack-700'>
-                            <div>
-                                <div className='flex gap-4 items-center'>
-                                    <div className='text-2xl'>
-                                        <BiSolidMessageRounded />
-                                    </div>
-                                    <h1 className='text-xl font-bold'>Chat on us</h1>
-                                </div>
-                                <p className='text-richblack-300 font-semibold'>Our friendly team is here to help</p>
-                                <p className='text-richblack-300 font-semibold'>Info@studify.com</p>
+        <div className="flex flex-col items-center justify-center p-6 w-full">
+            {/* Contact Sections (Limited Width) */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-6xl">
+                {/* First Section (Contact Info) */}
+                <div className="w-full md:w-2/5 flex flex-col items-center">
+                    <div className="bg-richblack-800 px-8 py-6 rounded-md border border-richblack-700 w-full max-w-md">
+                        {/* Chat with us */}
+                        <div className="flex gap-4 items-center mb-4">
+                            <div className="text-2xl text-white">
+                                <BiSolidMessageRounded />  {/* White Icon */}
                             </div>
-                            <div>
-                                <div className='flex items-center gap-4'>
-                                    <div className='text-2xl'>
-                                        <FaGlobeAmericas />
-                                    </div>
-                                    <h1 className='text-xl font-bold'>Visit us</h1>
-                                </div>
-                                <p className='text-richblack-300 font-semibold'>come and say hello at our office HQ</p>
-                                <p className='text-richblack-300 font-semibold'>Akshya nagar 1st Block 1st Cross , Rammurthy nagar,</p>
-                                <p className='text-richblack-300 font-semibold'>Banglore,2030301</p>
-                            </div>
-                            <div>
-                                <div className='flex gap-4 items-center'>
-                                    <div className='text-2xl'>
-                                        <FaPhone />
-                                    </div>
-                                    <h1 className='text-xl font-bold'>Call us</h1>
-                                </div>
-                                <p className='text-richblack-300 font-semibold'>Mon-Fri From 8am to 5pm</p>
-                                <p className='text-richblack-300 font-semibold'>+123456789</p>
-                            </div>
+                            <h1 className="text-xl font-bold text-white">Chat with us</h1> {/* White Heading */}
                         </div>
+                        <p className="text-richblack-300 font-semibold">Our friendly team is here to help</p>
+                        <p className="text-richblack-300 font-semibold">Info@studify.com</p>
+
+                        {/* Visit us */}
+                        <div className="flex gap-4 items-center mt-6">
+                            <div className="text-2xl text-white">
+                                <FaGlobeAmericas />  {/* White Icon */}
+                            </div>
+                            <h1 className="text-xl font-bold text-white">Visit us</h1> {/* White Heading */}
+                        </div>
+                        <p className="text-richblack-300 font-semibold">Come and say hello at our office HQ</p>
+                        <p className="text-richblack-300 font-semibold">Akshya Nagar 1st Block, Rammurthy Nagar,</p>
+                        <p className="text-richblack-300 font-semibold">Bangalore, 2030301</p>
+
+                        {/* Call us */}
+                        <div className="flex gap-4 items-center mt-6">
+                            <div className="text-2xl text-white">
+                                <FaPhone />  {/* White Icon */}
+                            </div>
+                            <h1 className="text-xl font-bold text-white">Call us</h1> {/* White Heading */}
+                        </div>
+                        <p className="text-richblack-300 font-semibold">Mon-Fri from 8 AM to 5 PM</p>
+                        <p className="text-richblack-300 font-semibold">+123456789</p>
                     </div>
-                    <div className='w-[60%] p-5'>
-                        <div className=' border border-richblue-700 p-5'>
-                            <ContactText heading={"Got an Idea? We've got the skills. Let's team up"}
-                                text={"Tell us more about yourself and what you've got in your mind"} active={false} />
-                            <ContactForm />
-                        </div>
+                </div>
+
+                {/* Second Section (Contact Form) */}
+                <div className="w-full md:w-3/5 p-5">
+                    <div className="border border-richblue-700 p-6 rounded-md">
+                        <ContactText 
+                            heading={"Got an Idea? We've got the skills. Let's team up"} 
+                            text={"Tell us more about yourself and what you've got in your mind"} 
+                            active={false} 
+                        />
+                        <ContactForm />
                     </div>
                 </div>
             </div>
-            <Footer />
+
+            {/* Footer (Full Width) */}
+            <div className="w-full">
+                <Footer />
+            </div>
         </div>
     )
 }

@@ -8,8 +8,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+<<<<<<< HEAD
     "start": "vite preview --port=$PORT --host"
 
+=======
+    "start": "vite preview"
+>>>>>>> bb84db7 (updated ui)
   },
   "dependencies": {
     "@ramonak/react-progress-bar": "^5.3.0",

@@ -110,7 +110,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
                                         >
                                             <input
                                                 type="checkbox"
-                                                // checked={completedLectures.includes(topic?._id)}
+                                                checked={completedLectures.includes(topic?._id)}
                                                 onChange={() => { }}
                                             />
                                             {topic.title}

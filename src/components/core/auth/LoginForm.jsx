@@ -1,72 +1,96 @@
 import React, { useState } from 'react'
-import { LuEye } from "react-icons/lu";
 import { Link } from 'react-router-dom';
-import loginImage from "../../../assets/Images/login.webp"
-import frame from "../../../assets/Images/frame.png"
-import TextTemplate from './TextTemplate';
-import { LuEyeOff } from "react-icons/lu";
 import { useDispatch } from'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../../services/operations/authAPI';
+import {AiOutlineEye} from "react-icons/ai"
+import { AiOutlineEyeInvisible } from 'react-icons/ai';
 
 const LoginForm = () => {
-    const [showPassword, setShowPassword] = useState(false)
-    const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [loginData, setLoginData] = useState({
-        email: "",
-        password: ""
-    })
-    const handleChange = (e) => {
-        setLoginData(prev => (
-            {
-                ...prev,
-                [e.target.name]: e.target.value
-            }
-        )
-        )
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        dispatch(login(loginData.email , loginData.password , navigate))
-    }
+  const dispatch = useDispatch()
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  })
+
+  const [showPassword, setShowPassword] = useState(false)
+
+  const { email, password } = formData
+
+  const handleOnChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }))
+  }
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    dispatch(login(email, password, navigate))
+  }
     return (
-        <div className='w-screen h-screen flex items-center justify-center'>
-            <div className='w-[70%] h-full flex gap-32'>
-                <div className='w-1/2 bg-pink-20 flex items-center'>
-                    <div className='w-full'>
-                        <TextTemplate title={"Welcome Back"} desc1={"Build skills for today, tomorrow, and beyond."} desc2={"Education to future-proof your carrer."} />
-                        <form onSubmit={handleSubmit} className='mt-6' action="">
-                            <label className='text-white' htmlFor="">Email Address<sup className='text-pink-200'>*</sup></label>
-                            <br></br>
-                            <input onChange={handleChange} type="text" name='email' required placeholder="Enter email address" className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 mt-2" />
-                            <br />
-                            <br />
-                            <div className='relative'>
-                                <label className='text-white' htmlFor="">Password<sup className='text-pink-200'>*</sup><span onClick={() => { setShowPassword((prev) => !prev) }} className='text-richblack-500 cursor-pointer absolute top-[45%] left-[90%] text-2xl'>{showPassword ? <LuEye /> : <LuEyeOff />}</span></label>
-                                <br></br>
-                                <input onChange={handleChange} type={showPassword ? "text" : "password"} name='password' required placeholder="Enter Password" className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5 mt-2" />
-                                <Link to={"/forgot-password"} className='text-sm text-blue-100 text-right cursor-pointer'>Forgot Password?</Link>
-                            </div>
-                            <button
-                                type="submit"
-                                className="w-full mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
-                            >
-                                Sign In
-                            </button>
-
-                        </form>
-
-                    </div>
-                </div>
-                <div className='w-1/2 relative flex justify-center items-center'>
-                    <img src={frame} alt="" className='absolute left-5 translate-y-[20px]' />
-                    <img src={loginImage} alt="" className='absolute' />
-
-                </div>
-            </div>
-        </div>
-    )
+    <form
+      onSubmit={handleOnSubmit}
+      className="mt-6 flex w-full flex-col gap-y-4"
+    >
+      <label className="w-full">
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          Email Address <sup className="text-pink-200">*</sup>
+        </p>
+        <input
+          required
+          type="text"
+          name="email"
+          value={email}
+          onChange={handleOnChange}
+          placeholder="Enter email address"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
+        />
+      </label>
+      <label className="relative">
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          Password <sup className="text-pink-200">*</sup>
+        </p>
+        <input
+          required
+          type={showPassword ? "text" : "password"}
+          name="password"
+          value={password}
+          onChange={handleOnChange}
+          placeholder="Enter Password"
+          style={{
+            boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
+          }}
+          className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
+        />
+        <span
+          onClick={() => setShowPassword((prev) => !prev)}
+          className="absolute right-3 top-[38px] z-[10] cursor-pointer"
+        >
+          {showPassword ? (
+            <AiOutlineEye fontSize={24} fill="#AFB2BF" />
+          ) : (
+            <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
+          )}
+        </span>
+        <Link to="/forgot-password">
+          <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+            Forgot Password
+          </p>
+        </Link>
+      </label>
+      <button
+        type="submit"
+        className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+      >
+        Sign In
+      </button>
+    </form>
+  )
 }
 
 export default LoginForm

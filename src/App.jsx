@@ -13,7 +13,12 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Dashboard from './pages/Dashboard'
 import MyProfile from './components/core/Dashboard/MyProfile'
+<<<<<<< HEAD
 import Index from "./components/core/Dashboard/settings/Index"
+=======
+import Settings from './components/core/Dashboard/settings/Settings'
+import Index from './components/core/Dashboard/settings/Index'
+>>>>>>> bb84db7 (updated ui)
 import AddCourse from './components/core/Dashboard/AddCourse'
 import MyCourses from './components/core/Dashboard/MyCourses'
 import EditCourse from './components/core/Dashboard/EditCourse/EditCourse'
