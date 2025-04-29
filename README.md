@@ -1,5 +1,5 @@
 
-# StudyNotion - EdTech Platform (LMS)
+# Studi-Fy - EdTech Platform (LMS)
 <!-- :rocket: [Link to the website]: ["to be updated soon"] -->
 
 
